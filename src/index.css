@@ -1,7 +1,11 @@
-section{
-    padding: 10px;
-    border:  1px solid;
+section {
+  padding: 10px;
+  border: 1px solid;
 }
-.container{
-    padding: 10px 0px ;
+.container {
+  padding: 10px 0px;
+}
+.row {
+  justify-content: center;
+  border: solid 1px;
 }
