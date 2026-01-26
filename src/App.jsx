@@ -8,10 +8,15 @@ import Two from "./components/Two";
 import Seven from "./components/Seven";
 import Eight from "./components/Eight";
 import Nine from "./components/Nine";
+import Ten from "./components/CustomeHook/Ten";
+
+
+const API = 'https://jsonplaceholder.typicode.com/users';
 function App() {
   return (
     <>
-      <Nine></Nine>
+      <Ten></Ten>
+      <Nine API={API}></Nine>
       <One></One>
       <Two></Two>
       <Three></Three>
