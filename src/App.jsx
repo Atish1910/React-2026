@@ -8,9 +8,11 @@ import Two from "./components/Two";
 import Seven from "./components/Seven";
 import Eight from "./components/Eight";
 import Nine from "./components/Nine";
+import Display from "./components/Display";
 function App() {
   return (
     <>
+      <Display></Display>
       <Nine></Nine>
       <One></One>
       <Two></Two>
