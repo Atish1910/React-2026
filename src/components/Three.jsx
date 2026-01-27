@@ -10,7 +10,7 @@ const Three = () => {
         const currentLength = textInputRef.current.value.length;
         setRemaining(maxLength- currentLength);
     }
-
+  
 return (
 <>
     <section>
