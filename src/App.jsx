@@ -13,8 +13,7 @@ import Practice from "./Practice";
 import { useState } from "react";
 import ElevenParent from "./components/callBack/ElevenParent";
 
-
-const API = 'https://jsonplaceholder.typicode.com/users';
+const API = "https://jsonplaceholder.typicode.com/users";
 function App() {
   const [data, seData] = useState("Atishhh");
 
