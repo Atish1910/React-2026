@@ -1,0 +1,27 @@
+🧩 Problem Statement
+Build a mini e-commerce UI using React with the following requirements:
+✅ Requirements
+1️⃣ Product Listing
+Fetch products from an API
+Display product name and price
+2️⃣ Search Functionality
+Search products by name
+Add pagination (10 items per page)
+Pagination should reset when search input changes
+3️⃣ Currency Toggle
+Toggle between USD ↔ INR
+Conversion rate: 1 USD = 85 INR ( consider taking live conversion rate if possible )
+❗ Do NOT mutate product data
+4️⃣ Add to Cart
+Add products to cart
+If product already exists, increase quantity
+Cart should show item count and total price
+5️⃣ Clear Cart
+Clear all cart items using correct React data flow
+Cart state should be owned by the parent component
+6️⃣ Performance Constraint
+Avoid unnecessary re-renders
+Do NOT blindly use useMemo
+7️⃣ Bonus (Advanced)
+Lazy load the Cart using code splitting
+Cart should load only when user interacts with it

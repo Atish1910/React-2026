@@ -12,6 +12,7 @@ import Ten from "./components/CustomeHook/Ten";
 import Practice from "./Practice";
 import { useState } from "react";
 import ElevenParent from "./components/callBack/ElevenParent";
+import Ecommerce from "./ECommerce/Ecommerce";
 
 const API = "https://jsonplaceholder.typicode.com/users";
 function App() {
@@ -23,7 +24,8 @@ function App() {
 
   return (
     <>
-    <ElevenParent></ElevenParent>
+      <Ecommerce></Ecommerce>
+      <ElevenParent></ElevenParent>
       <Ten></Ten>
       <Practice data={data} onUpdate={onUpdate}></Practice>
       <Ten></Ten>
