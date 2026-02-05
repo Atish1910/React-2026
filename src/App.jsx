@@ -13,6 +13,8 @@ import Practice from "./Practice";
 import { useState } from "react";
 import ElevenParent from "./components/callBack/ElevenParent";
 import Ecommerce from "./ECommerce/Ecommerce";
+import CurrencyConvert from "./Currency/CurrencyConvert";
+import Parent from "./AddToCart/Parent";
 
 const API = "https://jsonplaceholder.typicode.com/users";
 function App() {
@@ -24,6 +26,8 @@ function App() {
 
   return (
     <>
+      <Parent></Parent>
+      <CurrencyConvert></CurrencyConvert>
       <Ecommerce></Ecommerce>
       <ElevenParent></ElevenParent>
       <Ten></Ten>
