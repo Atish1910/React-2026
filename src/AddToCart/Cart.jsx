@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cart = ({cart, setCart}) => {
+const Cart = ({cart}) => {
     return (
         <>
             <div className="row">

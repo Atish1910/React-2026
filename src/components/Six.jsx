@@ -26,7 +26,7 @@ function Six() {
         return () => {
             clearTimeout(handler);
         }
-    })
+    }, [onSearch])
 
     useEffect(() => {
         fetchDataFromApi();

@@ -6,8 +6,9 @@ const Parent = () => {
     const [cart, setCart] = useState([]);
 
     const addToCart = (product) => {
-        const existingItem = cart.find((item) => item.id == product.id);
 
+        const existingItem = cart.find((item) => item.id == product.id);
+        
         if(existingItem){
             setCart(
                 cart.map((item) => 
@@ -15,7 +16,7 @@ const Parent = () => {
                 )
             )
         }else{
-            setCart([...cart, {...product, qty: 1}])
+            setCart([...cart, {...product}]);
         }
     }
 

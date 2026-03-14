@@ -1,89 +1,111 @@
-import React from 'react';
-import {useState, useEffect} from "react";
+import React, { useState } from 'react';
 
-const API = "https://api.escuelajs.co/api/v1/products";
 const Ecommerce = () => {
-    const [data, setData] = useState([]);
-    const [search, setSearch] = useState("");
-    const [debounceSearch, setDebounceSearch] = useState("");
+    const products = [
+        {id : 1, name : "laptop", price : 100},
+        {id : 2, name : "desktop", price : 200},
+        {id : 3, name : "mobile", price : 300},
+        {id : 4, name : "mouse", price : 400},
+    ];
+    const [cartItem, setCartItem] = useState([]);
 
-    const [cart,setCart] = useState([]);
-
-
-    const [page, setPage] = useState(1);
-    const itemsPerPage = 10;
-
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-
-
-
-    async function fetchData(){
-        try {
-            const res = await fetch(API);
-            const result = await res.json();
-            setData(result);
-        } catch (error) {
-            console.log(error);            
+    const handleAddToCart = (product) => {
+        const existing = cartItem.find((item) => item.id == product.id);
+        if(!existing){
+            setCartItem([...cartItem, {...product, quantity : 1}]);
+            console.log(product);
+        }else{
+            const updatedAddItem = cartItem.map((item) => {
+                return item.id == product.id ? 
+                {...item, quantity : item.quantity + 1} : item
+            });
+            setCartItem(updatedAddItem);
         }
     }
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    useEffect(() => {
-        const iResult = setTimeout(() => {
-            setDebounceSearch(search)
-        }, 500);
-
-        return () => {
-            clearTimeout(iResult);
-        }
-    });
-
-    const filterData = data.filter((d) => d.title.toLowerCase().includes(debounceSearch.toLowerCase()));
-
-    const paginate = filterData.slice(startIndex, endIndex);
-
-    const addToCart = (data) => {
-        setCart((prevCart) => {
-            const existingCart = prevCart.find((item) => item.id == data.id);
-
-            if(existingCart){
-                return prevCart.map((item) => item.id == data.id ? {...item, qty : item.qty + 1} : item);
-            }
-            return [...prevCart, {data, qty : 1}];
+    const handleRemoveFromCart = (productId) => {
+        const updatedRemoveCart = cartItem.filter((item) => {
+            return item.id !== productId;
         });
+        setCartItem(updatedRemoveCart);
     }
 
-    const totalItems = cart.reduce((acc, curr) => acc + data.qty, 0)
+    
+    const increaseQuantity = (productId) => {
+      const updateQuantity = cartItem.map((item) => {
+        return item.id == productId ? {...item, quantity : item.quantity + 1} : item
+      });
+
+      setCartItem(updateQuantity); 
+    }
+
+    const decreaseQuantity = (productId) => {
+        const updatedQuantity = cartItem.map((item) => {
+            return item.id == productId ? {...item, quantity : item.quantity - 1} : item
+        }).filter((item) => item.quantity > 0);
+        setCartItem(updatedQuantity);
+    }
+
+    const inInCart = (id) => {
+        return cartItem.some((item) => item.id == id);
+    }
+    
 
     return (
-        <section>
-            <div className="container">
-                <div className="row">
-                    <h4>fetch items from api</h4>
-                    <p>🧩 Problem Statement Build a mini e-commerce UI using React with the following requirements: ✅ Requirements 1️⃣ Product Listing Fetch products from an API Display product name and price 2️⃣ Search Functionality Search products by name Add pagination (10 items per page) Pagination should reset when search input changes</p>
-
-                    <input type="text" className='form-control mb-3' onChange={(e) => setSearch(e.target.value)} />
-                    <ul>
+        <>
+         <section>
+                <div className="container">
+                    <div className="row py-5 border">
+                        <div className="col-8 text-start">
+                            <ul>
+                                <li>1 : fetch data from costom array which contain (product name, price & id)</li>
+                                <li>create add to cart button & shift data into cart component </li>
+                                <li>fetch cart data in same component</li>
+                                <li>user can add quanity & price should be increases</li>
+                                <li>user can decrese items</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="row py-5 mt-5">
                         {
-                            paginate && paginate.map((d) => (
-                                <li key={d.id}>{d.title}
-                                <button className='btn btn-success' onClick={() => addToCart(d)}>add</button>
-                                </li>
+                            products.map((p) =>(
+                                <div className="col-lg-3">
+                                    <div className="" key={p.id}>
+                                        <h6>{p.name}</h6>
+                                        <p>{p.price}</p>
+                                        <button className='btn btn-outline-danger' onClick={() => decreaseQuantity(p.id)}>-</button>
+                                        {
+                                            inInCart(p.id) ? 
+                                            <button className='btn btn-outline-danger' onClick={() => handleRemoveFromCart(p.id)}>Remove From cart</button>
+                                            : 
+                                            <button className='btn btn-outline-primary' onClick={() => handleAddToCart(p)}>Add To Cart</button> 
+                                        }
+                                        <button className='btn btn-outline-success' onClick={() => increaseQuantity(p.id)}>+</button>
+                                    </div>
+                                </div>
                             ))
                         }
-                    </ul>
-                    <h5>Cart Items: {totalItems}</h5>
-                    <div className="">
-                        <button className='btn btn-danger' disabled={page === 1} onClick={() => setPage(page - 1)}>prev</button>
-                        <button className='btn btn-success' disabled={endIndex === data.length} onClick={() => setPage(page + 1)}>prev</button>
                     </div>
+
+                    
+                    <div className="row py-5 mt-5">
+                        {
+                            cartItem.map((p) =>(
+                                <div className="col-lg-3">
+                                    <div className="border mb-3 pt-3 rounded-3">
+                                        <h6>{p.name}</h6>
+                                        <p>{p.price}</p>
+                                        <p>{p.quantity}</p>
+                                        <p>Total Price : {p.price * p.quantity}</p>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+
                 </div>
-            </div>
-        </section>
+            </section>   
+        </>
     );
 };
 
