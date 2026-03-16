@@ -7,47 +7,47 @@ const Ecommerce = () => {
         {id : 3, name : "mobile", price : 300},
         {id : 4, name : "mouse", price : 400},
     ];
-    const [cartItem, setCartItem] = useState([]);
+    const [cart, setCart] = useState([]);
 
     const handleAddToCart = (product) => {
-        const existing = cartItem.find((item) => item.id == product.id);
+        const existing = cart.find((item) => item.id == product.id);
         if(!existing){
-            setCartItem([...cartItem, {...product, quantity : 1}]);
+            setCart([...cart, {...product, quantity : 1}]);
             console.log(product);
         }else{
-            const updatedAddItem = cartItem.map((item) => {
+            const updatedAddItem = cart.map((item) => {
                 return item.id == product.id ? 
                 {...item, quantity : item.quantity + 1} : item
             });
-            setCartItem(updatedAddItem);
+            setCart(updatedAddItem);
         }
     }
 
     const handleRemoveFromCart = (productId) => {
-        const updatedRemoveCart = cartItem.filter((item) => {
+        const updatedRemoveCart = cart.filter((item) => {
             return item.id !== productId;
         });
-        setCartItem(updatedRemoveCart);
+        setCart(updatedRemoveCart);
     }
 
     
     const increaseQuantity = (productId) => {
-      const updateQuantity = cartItem.map((item) => {
+      const updateQuantity = cart.map((item) => {
         return item.id == productId ? {...item, quantity : item.quantity + 1} : item
       });
 
-      setCartItem(updateQuantity); 
+      setCart(updateQuantity); 
     }
 
     const decreaseQuantity = (productId) => {
-        const updatedQuantity = cartItem.map((item) => {
+        const updatedQuantity = cart.map((item) => {
             return item.id == productId ? {...item, quantity : item.quantity - 1} : item
         }).filter((item) => item.quantity > 0);
-        setCartItem(updatedQuantity);
+        setCart(updatedQuantity);
     }
 
     const inInCart = (id) => {
-        return cartItem.some((item) => item.id == id);
+        return cart.some((item) => item.id == id);
     }
     
 
@@ -57,6 +57,7 @@ const Ecommerce = () => {
                 <div className="container">
                     <div className="row py-5 border">
                         <div className="col-8 text-start">
+                            <h4>create a E-Commerce Application</h4>
                             <ul>
                                 <li>1 : fetch data from costom array which contain (product name, price & id)</li>
                                 <li>create add to cart button & shift data into cart component </li>
@@ -90,7 +91,7 @@ const Ecommerce = () => {
                     
                     <div className="row py-5 mt-5">
                         {
-                            cartItem.map((p) =>(
+                            cart.map((p) =>(
                                 <div className="col-lg-3">
                                     <div className="border mb-3 pt-3 rounded-3">
                                         <h6>{p.name}</h6>
