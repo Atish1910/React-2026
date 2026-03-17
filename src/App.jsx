@@ -1,29 +1,14 @@
-import "./App.css";
-import Five from "./components/Five";
-import Four from "./components/Four";
-import One from "./components/One";
-import Six from "./components/Six";
-import Three from "./components/Three";
-import Two from "./components/Two";
-import Seven from "./components/Seven";
-import Eight from "./components/Eight";
-import Nine from "./components/Nine";
-import Ten from "./components/CustomeHook/Ten";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ECommerceUseState from "./components/eCommerce/ECommerceUseState";
+import AutoCompleteParent from "./components/Autocomplete-Typing/AutoCompleteParent";
 
-const API = "https://jsonplaceholder.typicode.com/users";
 function App() {
   return (
     <>
-      <Ten></Ten>
-      <Nine API={API}></Nine>
-      <One></One>
-      <Two></Two>
-      <Three></Three>
-      <Four></Four>
-      <Five></Five>
-      <Six></Six>
-      <Seven></Seven>
-      <Eight></Eight>
+      <BrowserRouter>
+        <AutoCompleteParent></AutoCompleteParent>
+        <ECommerceUseState></ECommerceUseState>
+      </BrowserRouter>
     </>
   );
 }
