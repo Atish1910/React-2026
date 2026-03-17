@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Product from "./Product";
+import { useNavigate } from "react-router-dom";
 
-const API = "https://staging.velouraworld.com/api/api/v1/products";
-const Products = ({ setSearch, filterData }) => {
+const Products = ({ setSearch, filterData, showSuggestion, setShowSuggestion, search , debounce, products}) => {
+
+  const navigate = useNavigate();
+
+
   return (
     <>
       <section>
@@ -15,13 +19,29 @@ const Products = ({ setSearch, filterData }) => {
               <input
                 type="text"
                 placeholder="search via product name"
-                onChange={(e) => setSearch(e.target.value)}
                 className="form-control"
+                value={search}
+                onChange={(e) => {setSearch(e.target.value);
+                  setShowSuggestion(true);
+                }}
+                
               />
+                <ul className="bg-light pt-4">
+              { showSuggestion &&  debounce &&
+                  filterData.slice(0, 5).map((p) => (
+                  <li key={p.id}
+                  onClick={() => {
+                    navigate(`/products/${p._id}`);
+                    setShowSuggestion(false);
+                    setSearch(p.productName)
+                  }}
+                   >{p.productName}</li>
+              ))}
+                </ul>
             </div>
           </div>
           <div className="row">
-            {filterData.map((p) => (
+            {products.map((p) => (
               <Product key={p.id} p={p}></Product>
             ))}
           </div>

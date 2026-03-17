@@ -8,6 +8,7 @@ const AutoCompleteParent = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [debounce, setDebounce] = useState("");
+  const [showSuggestion, setShowSuggestion] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -41,9 +42,7 @@ const AutoCompleteParent = () => {
       <Routes>
         <Route
           path="/"
-          element={
-            <Products setSearch={setSearch} filterData={filterData}></Products>
-          }
+          element={<Products search={search} products={products} setSearch={setSearch} filterData={filterData} showSuggestion={showSuggestion} setShowSuggestion={setShowSuggestion} debounce={debounce}></Products>}
         ></Route>
         <Route
           path="/products/:id"
