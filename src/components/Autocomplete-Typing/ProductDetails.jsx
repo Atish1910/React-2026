@@ -28,12 +28,7 @@ const ProductDetails = ({ products }) => {
   return (
     <div className="container py-5">
       <div className="card">
-        <img
-          src={selectedProduct.images[0]}
-          className="card-img-top"
-          height="200px"
-          alt=""
-        />
+        <img src={selectedProduct.images[0]} className="card-img-top" alt="" />
         <div className="card-body">
           <h5>{selectedProduct.productName}</h5>
           <p>Price: {selectedProduct.price}</p>
