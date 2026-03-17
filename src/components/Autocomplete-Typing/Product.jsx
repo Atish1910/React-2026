@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const AllProducts = ({ p }) => {
+const Product = ({ p }) => {
   const navigate = useNavigate();
 
   return (
@@ -30,4 +30,4 @@ const AllProducts = ({ p }) => {
   );
 };
 
-export default AllProducts;
+export default Product;

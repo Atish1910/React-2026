@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import AllProducts from "./AllProducts";
+import Product from "./Product";
 
 const API = "https://staging.velouraworld.com/api/api/v1/products";
-const Autocomplete = ({ setSearch, filterData }) => {
+const Products = ({ setSearch, filterData }) => {
   return (
     <>
       <section>
@@ -22,7 +22,7 @@ const Autocomplete = ({ setSearch, filterData }) => {
           </div>
           <div className="row">
             {filterData.map((p) => (
-              <AllProducts key={p.id} p={p}></AllProducts>
+              <Product key={p.id} p={p}></Product>
             ))}
           </div>
         </div>
@@ -31,4 +31,4 @@ const Autocomplete = ({ setSearch, filterData }) => {
   );
 };
 
-export default Autocomplete;
+export default Products;

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import ProductDetails from "./ProductDetails";
-import Autocomplete from "./Autocomplete";
+import Products from "./Products";
 import { useEffect, useState } from "react";
 
 const API = "https://staging.velouraworld.com/api/api/v1/products";
@@ -42,10 +42,7 @@ const AutoCompleteParent = () => {
         <Route
           path="/"
           element={
-            <Autocomplete
-              setSearch={setSearch}
-              filterData={filterData}
-            ></Autocomplete>
+            <Products setSearch={setSearch} filterData={filterData}></Products>
           }
         ></Route>
         <Route
