@@ -5,20 +5,20 @@ const ProductDetails = ({ products }) => {
   const { id } = useParams();
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const fetchData = async () => {
-    try {
-      const found = products.find((item) => item._id === id); // ✅ fix
-      if (found) {
-        setSelectedProduct(found); // ✅ fix
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const found = products.find((item) => item._id === id); // ✅ fix
+        if (found) {
+          setSelectedProduct(found); // ✅ fix
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchData();
-  }, [id]);
+  },[]);
+
 
   // ✅ handle loading
   if (!selectedProduct) {
