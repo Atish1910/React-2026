@@ -9,12 +9,17 @@ import { Route, Routes } from "react-router-dom";
 import ECommerceUseState from "./components/eCommerce/ECommerceUseState";
 import ECommerceParentUseContextApi from "./ECommerce/ContextApi/ECommerceParentUseContextApi";
 import CurrencyConvert from "./Currency/CurrencyConvert";
+import AccordionUseState from "./components/Accordion/AccordionUseState";
+import Practice from "./Practice";
 
 function App() {
   return (
     <>
+
       <NavbarComponent></NavbarComponent>
+      <Practice></Practice>
       <Routes>
+        <Route path="/" element={<AccordionUseState></AccordionUseState>}></Route>
         <Route
           path="/autoCompleteComponent"
           element={<AutoCompleteParent></AutoCompleteParent>}
