@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import Product from "./Product";
 import { useNavigate } from "react-router-dom";
 
-const Products = ({ setSearch, filterData, search , debounce, products, handleKeyDown}) => {
-
-  const [ showSuggestion, setShowSuggestion] = useState(false);
+const Products = ({ setSearch, filterData, search, debounce, products }) => {
+  const [showSuggestion, setShowSuggestion] = useState();
   const navigate = useNavigate();
-
 
   return (
     <>
@@ -22,24 +20,27 @@ const Products = ({ setSearch, filterData, search , debounce, products, handleKe
                 placeholder="search via product name"
                 className="form-control"
                 value={search}
-                onChange={(e) => {setSearch(e.target.value);
+                onChange={(e) => {
+                  setSearch(e.target.value);
                   setShowSuggestion(true);
                 }}
-                onKeyDown={handleKeyDown}
-                
               />
-                <ul className="bg-light pt-4">
-              { showSuggestion &&  debounce &&
+              <ul className="bg-light pt-4">
+                {showSuggestion &&
+                  debounce &&
                   filterData.slice(0, 5).map((p) => (
-                  <li key={p.id}
-                  onClick={() => {
-                    navigate(`/products/${p._id}`);
-                    setShowSuggestion(false);
-                    setSearch(p.productName)
-                  }}
-                   >{p.productName}</li>
-              ))}
-                </ul>
+                    <li
+                      key={p.id}
+                      onClick={() => {
+                        navigate(`/products/${p._id}`);
+                        setShowSuggestion(false);
+                        setSearch(p.productName);
+                      }}
+                    >
+                      {p.productName}
+                    </li>
+                  ))}
+              </ul>
             </div>
           </div>
           <div className="row">

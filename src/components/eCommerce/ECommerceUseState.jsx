@@ -55,7 +55,7 @@ const ECommerceUseState = () => {
     <>
       <section>
         <div className="container">
-          <h5>01 : Create a E Commerce Application</h5>
+          <h5>01 : Create a E Commerce Application (use State)</h5>
           <div className="row pt-3">
             {products.map((p) => (
               <div className="col py-3 border mb-4 text-center">

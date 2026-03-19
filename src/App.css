@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+/*  */
+
+/* Show dropdown on hover */
+.custom-dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* Smooth feel */
+.dropdown-menu {
+  transition: all 0.3s ease;
+}
+
+/* Optional hover effect */
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
