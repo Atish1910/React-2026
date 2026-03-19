@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Product from "./Product";
 import { useNavigate } from "react-router-dom";
 
-const Products = ({ setSearch, filterData, showSuggestion, setShowSuggestion, search , debounce, products}) => {
+const Products = ({ setSearch, filterData, search , debounce, products, handleKeyDown}) => {
 
+  const [ showSuggestion, setShowSuggestion] = useState(false);
   const navigate = useNavigate();
 
 
@@ -24,6 +25,7 @@ const Products = ({ setSearch, filterData, showSuggestion, setShowSuggestion, se
                 onChange={(e) => {setSearch(e.target.value);
                   setShowSuggestion(true);
                 }}
+                onKeyDown={handleKeyDown}
                 
               />
                 <ul className="bg-light pt-4">

@@ -3,10 +3,12 @@ import ECommerceUseContextApi from "./ECommerce/ContextApi/ECommerceUseContextAp
 import CartItem from "./ECommerce/ContextApi/CartItem";
 import { CartProvider } from "./ECommerce/ContextApi/Context";
 import AutoCompleteParent from "./components/Autocomplete-Typing/AutoCompleteParent";
+import DataTable from "./components/Data-Table/DataTable";
 
 function App() {
   return (
     <>
+      <DataTable></DataTable>
       <AutoCompleteParent></AutoCompleteParent>
       <CartProvider>
         <div className="">
