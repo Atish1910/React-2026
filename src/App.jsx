@@ -20,6 +20,10 @@ function App() {
       <UseStateAllQuestions></UseStateAllQuestions>
       <Routes>
         <Route
+          path="/"
+          element={<AccordionUseState></AccordionUseState>}
+        ></Route>
+        <Route
           path="/autoCompleteComponent"
           element={<AutoCompleteParent></AutoCompleteParent>}
         ></Route>

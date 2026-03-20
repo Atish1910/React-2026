@@ -1,62 +1,35 @@
-import { useEffect, useState } from "react";
+import React, { useState } from 'react';
 
-function Practice(){
-    const [products, setProducts] = useState([]);
-    const [search, setSearch] = useState("");
-    const [debouncing, setDebouncing] = useState("");
+const Practice = () => {
+    const Rate = 85;
+    
+    const [amount, setAmount] = useState(1);
+    const [currency, setCurrency] = useState("USD");
+    
+    const convertCurrency = currency == "USD" ? Rate * amount : Rate / amount;
 
-    const fetchData = async () => {
-        try{
-            const res = await fetch("https://api.escuelajs.co/api/v1/categories");
-            const result = (await res.json());
-            console.log(result);
-            setProducts(result);
-        }catch(error){
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const filterData = products.filter((p) => {
-        return p?.name?.toLowerCase().includes(debouncing.toLowerCase());
-    });
-
-    const handleDeboucning = () => {
-        const iResult = setTimeout(() => {
-            setDebouncing(search);
-        }, 500); 
-
-        return () => {
-            clearTimeout(iResult);
-        }
+    const toggleCurrency = () => {
+        setCurrency(currency == "USD" ? "INR" : "USD");
     };
+    
 
-    useEffect(() => {
-        handleDeboucning();
-    }, [search]);
-
-
-    return(
+    return (
         <>
-            <section>
-                <div className="container">
-                    <div className="row">
-                        <h4>new askklasjd 11. How to add data into useState array in functional component in react ?</h4>
-                        <input type="text" onChange={(e) => setSearch(e.target.value)} />
-                        <ul>
-                            {
-                                filterData.map((p) => (
-                                    <li key={p.id}>{p.name}</li>
-                                ))
-                            }
-                        </ul>
+         <section>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-lg-6 pt-4">
+                        <form action="">
+                            <input type="text" className='form-control mb-3' onChange={(e) => toggleCurrency(e.target.value)}  value={amount} placeholder='enter your ammount' />
+                            <p>usd : 1 = inr : 80</p>
+                            <button className='btn btn-outline-success'>inr to usd</button>
+                        </form>
                     </div>
                 </div>
-            </section>
+                </div>
+            </section>   
         </>
-    )
-}
+    );
+};
+
 export default Practice;
