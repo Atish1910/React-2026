@@ -9,11 +9,15 @@ import { Route, Routes } from "react-router-dom";
 import ECommerceUseState from "./components/eCommerce/ECommerceUseState";
 import ECommerceParentUseContextApi from "./ECommerce/ContextApi/ECommerceParentUseContextApi";
 import CurrencyConvert from "./Currency/CurrencyConvert";
+import UseStateAllQuestions from "./useState/UseStateAllQuestions";
+import PerformenceOptimization from "./performenceOptimization/performenceOptimization";
 
 function App() {
   return (
     <>
       <NavbarComponent></NavbarComponent>
+      <PerformenceOptimization></PerformenceOptimization>
+      <UseStateAllQuestions></UseStateAllQuestions>
       <Routes>
         <Route
           path="/autoCompleteComponent"
