@@ -4,7 +4,7 @@ const useWindowWidth = () => {
     const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        const handleWidthChange = () => setWidth(width.innerWidth);
+        const handleWidthChange = () => setWidth(window.innerWidth);
 
         window.addEventListener("resize", handleWidthChange);
 
