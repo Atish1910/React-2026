@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function AccordionUseState  () {
+function AccordionUseState  () {
     const friends = [
         {id : 1, name : "Tusha", gf : "purva..."},
         {id : 2, name : "Niryaa", gf : "Kajal..."},
@@ -45,3 +45,5 @@ export default function AccordionUseState  () {
         </>
     );
 };
+
+export default  AccordionUseState;

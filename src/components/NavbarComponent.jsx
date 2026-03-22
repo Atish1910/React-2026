@@ -20,15 +20,29 @@ const NavbarComponent = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <Link className="nav-link" to="/">
-              Home
-            </Link>
+            <Link className="nav-link" to="/UseCallbackComponent">UseCallbackComponent</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/ParentContext">ParentContext</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/UseMemoParent">UseMemoParent</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/customHooks">customHooks</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/useReducerAllQuestion">useReducerAllQuestion</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/useRefAllQuestions">useRefAllQuestions</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/usestateallquestion">useStateAllQuestion</Link>
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link" to="/about">
-              About
-            </Link>
+            <Link className="nav-link" to="/performenceoptimization">PerformenceOptimization</Link>
           </li>
 
           {/* Dropdown 1 */}

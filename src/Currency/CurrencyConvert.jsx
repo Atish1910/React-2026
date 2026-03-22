@@ -1,40 +1,37 @@
-import {
-    useState
-} from "react";
+import React, { useState } from 'react';
 
-function CurrencyConvert() {
-
-    const Rate = 85;
-
-    const [ammount, setAmmount] = useState(12);
+const CurrencyConvert = () => {
+    const rate = 85;
+    const [amount, setAmount] = useState(1);
     const [currency, setCurrency] = useState("USD");
 
-    const convertedCurrency = currency === "USD" ? ammount * Rate : ammount / Rate;
+    const totalAmmount = currency == "USD" ?  rate *  amount : rate / amount;
 
-    const toggleCurrency = () => {
+    const handleOnClick = () => {
         setCurrency(currency == "USD" ? "INR" : "USD");
     }
+
+
 
     return (
         <>
             <section>
                 <div className="container">
                     <div className="row">
-                        <h4>3️⃣ Currency Toggle Toggle between USD ↔ INR</h4>
-                        <div className="col-lg-6 mb-4">
-                            <input type="text" onChange={(e)=> setAmmount(e.target.value) } value={ammount}
-                            className="form-control my-3" placeholder="enter ammount here...."/>
-                            <p>
-                                <b>{ currency === "USD" ?
-                                    `${ammount} USD = Rs${convertedCurrency.toFixed(2)} ` :
-                                    `${ammount} INR = $${convertedCurrency.toFixed(2)}`
-                                    }</b></p>
-                            <button className="btn btn-success" onClick={toggleCurrency}>change to USD</button>
+                        <h4>create a currency converter</h4>
+                        <div className="col-lg-6">
+                            <input type="text" placeholder='enter your ammount' value={amount} onChange={(e) => setAmount(e.target.value)} className='form-control mb-3' />
+                            {
+                                currency == "USD" ? <p>converted currency from USD TO INR : <b>{totalAmmount}</b></p> : 
+                                <p>converted currency from INR  TO USD : <b>{totalAmmount}</b></p>
+                            }
+                            <button className='btn btn-outline-success mb-3' onClick={handleOnClick}>convert to {currency}</button>
                         </div>
                     </div>
                 </div>
-            </section>
+            </section>   
         </>
-    )
-}
+    );
+};
+
 export default CurrencyConvert;
