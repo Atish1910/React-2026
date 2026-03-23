@@ -1,14 +1,14 @@
 import React from "react";
 import { CartProvider } from "./Context";
-import ECommerceUseState from "../../components/eCommerce/ECommerceUseState";
 import CartItem from "./CartItem";
+import ECommerceUseContextApi from "./ECommerceUseContextApi";
 
 const ECommerceParentUseContextApi = () => {
   return (
     <>
       <CartProvider>
         <div className="">
-          <ECommerceUseState></ECommerceUseState>
+          <ECommerceUseContextApi></ECommerceUseContextApi>
           <CartItem></CartItem>
         </div>
       </CartProvider>
