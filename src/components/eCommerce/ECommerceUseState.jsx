@@ -64,18 +64,25 @@ const ECommerceUseState = () => {
                   <p className="">
                     <b>{p.price}</b>
                   </p>
+                  {
+                    isInCart ? (
                   <button
                     className="btn btn-outline-success"
                     onClick={() => addToCart(p)}
                   >
                     Add To Cart
                   </button>
+                    ) : (
+
                   <button
                     className="btn btn-outline-danger"
                     onClick={() => removeFromCart(p.id)}
                   >
                     Remove From Cart
                   </button>
+                    )
+                  }
+                  
                 </div>
               </div>
             ))}
