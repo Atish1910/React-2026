@@ -58,3 +58,10 @@
 .dropdown-item:hover {
   background-color: #f8f9fa;
 }
+.row {
+  margin-bottom: 25px;
+}
+.parent {
+  background-color: aqua;
+  padding: 10px;
+}
