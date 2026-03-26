@@ -15,6 +15,7 @@ import CustomHooks from "./Hooks/CostumHooks/CustomHooks";
 import UseMemoParent from "./Hooks/UseMemo/UseMemoParent";
 import ParentContext from "./Hooks/ContextAPI/ParentContext";
 import UseCallbackComponent from "./Hooks/UseCallback/UseCallbackComponent";
+import FormsPage from "./Questions/Form-Handelling/FormsPage";
 
 function App() {
   return (
@@ -80,6 +81,12 @@ function App() {
           path="/currency-converter"
           element={<CurrencyConvert></CurrencyConvert>}
         ></Route>
+        
+        <Route
+          path="/FormsPage"
+          element={<FormsPage></FormsPage>}
+        ></Route>
+
       </Routes>
     </>
   );
