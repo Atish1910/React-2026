@@ -8,7 +8,8 @@ const SimpleUserForm = () => {
     });
 
     const handleOnChange = (e) => {
-        const {name, value} = e.target;
+        const {name} = e.target;
+        const {value} = e.target;
         
         setFormData((formData) => ({
             ...formData, [name] : value
