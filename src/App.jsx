@@ -13,8 +13,8 @@ import TextareaWithCharCount from "./Hooks/UseRef/TextareaWithCharCount";
 import UseReducerComponent from "./Hooks/UseReducer/UseReducerComponent";
 import CustomHooks from "./Hooks/CostumHooks/CustomHooks";
 import UseMemoParent from "./Hooks/UseMemo/UseMemoParent";
-import ParentContext from "./Hooks/ContextAPI/ParentContext";
 import UseCallbackComponent from "./Hooks/UseCallback/UseCallbackComponent";
+import ParentContextPage from "./Hooks/ContextAPI/ParentContextPage";
 
 function App() {
   return (
@@ -30,8 +30,8 @@ function App() {
           element={<UseCallbackComponent></UseCallbackComponent>}
         ></Route>
         <Route
-          path="/ParentContext"
-          element={<ParentContext></ParentContext>}
+          path="/ParentContextPage"
+          element={<ParentContextPage></ParentContextPage>}
         ></Route>
         <Route
           path="/UseMemoParent"

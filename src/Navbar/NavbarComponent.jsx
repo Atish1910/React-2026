@@ -55,6 +55,21 @@ const NavbarComponent = () => {
             </ul>
           </li>
           <li className="nav-item dropdown custom-dropdown">
+            <span className="nav-link dropdown-toggle">ContextAPI</span>
+            <ul className="dropdown-menu">
+              <li>
+                <Link className="dropdown-item" to="/ParentContextPage">
+                  ParentContextPage
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to="/useReducerAllQuestion">
+                  Use Reducer All Question
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li className="nav-item dropdown custom-dropdown">
             <span className="nav-link dropdown-toggle">Questions</span>
             <ul className="dropdown-menu">
               <li>
@@ -96,8 +111,8 @@ const NavbarComponent = () => {
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link" to="/ParentContext">
-              ParentContext
+            <Link className="nav-link" to="/ContextApiParent">
+              ContextApiParent
             </Link>
           </li>
 
