@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SetTimeOutCounter from './SetTimeOutCounter';
 
 const CurrencyConvert = () => {
     const rate = 85;
@@ -10,6 +11,8 @@ const CurrencyConvert = () => {
     const handleOnClick = () => {
         setCurrency(currency == "USD" ? "INR" : "USD");
     }
+
+
 
 
 
@@ -28,6 +31,7 @@ const CurrencyConvert = () => {
                             <button className='btn btn-outline-success mb-3' onClick={handleOnClick}>convert to {currency}</button>
                         </div>
                     </div>
+                    <SetTimeOutCounter></SetTimeOutCounter>
                 </div>
             </section>   
         </>
